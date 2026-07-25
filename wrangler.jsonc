@@ -1,0 +1,15 @@
+{
+  "$schema": "node_modules/wrangler/config-schema.json",
+  "name": "attend-kun",
+  "main": "src/index.ts",
+  "compatibility_date": "2026-07-06",
+  "vars": {
+    // Replace after deploying the Cloud Run teams-agent.
+    "TEAMS_AGENT_URL": "https://example.invalid",
+    // Non-sensitive label shown in the UI.
+    "TARGET_CHAT_NAME": "Configured Teams chat"
+  }
+  // Secrets (set with `wrangler secret put`):
+  //   APP_AUTH_TOKEN       - passcode for the UI / POST /api/punch
+  //   AGENT_SHARED_SECRET  - shared secret sent to the teams-agent
+}

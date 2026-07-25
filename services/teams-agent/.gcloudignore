@@ -1,0 +1,7 @@
+# Uploaded to Cloud Build; node_modules and dist are rebuilt inside the image.
+node_modules/
+dist/
+npm-debug.log
+.env
+.env.*
+*.local
