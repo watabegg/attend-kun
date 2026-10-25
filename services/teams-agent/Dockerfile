@@ -1,6 +1,12 @@
+FROM node:22.23.4-bookworm-slim AS node-runtime
+
 # Playwright base image ships a matching Chromium build + OS deps.
 # Keep this tag in lockstep with the "playwright" version in package.json.
-FROM mcr.microsoft.com/playwright:v1.55.1-noble
+FROM mcr.microsoft.com/playwright:v1.63.0-noble
+
+# Replace the Node.js binary bundled in Playwright while retaining its matching browsers.
+COPY --from=node-runtime /usr/local/bin/node /usr/bin/node
+RUN test "$(node --version)" = "v22.23.4"
 
 WORKDIR /app
 
